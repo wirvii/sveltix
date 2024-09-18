@@ -1,7 +1,9 @@
 <script>
-    import { INPUT_LABEL_GROUP_STYLES } from "./styles.js";
+    import { StyleBuilder } from "./styles.js";
+
+    const styles = new StyleBuilder();
 </script>
 
-<div class={INPUT_LABEL_GROUP_STYLES}>
+<div class={styles.inputLabelGroup().build()}>
     <slot></slot>
 </div>

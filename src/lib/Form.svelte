@@ -23,15 +23,17 @@
 </script>
 
 <form on:submit={handleSubmit}>
-	<GridLayout {colCount}>
-		{#each items as item}
-			<Item
-				{...item}
-				on:input={handleItemEvent}
-				on:change={handleItemEvent}
-				on:click={handleItemEvent}
-			/>
-		{/each}
-		<slot></slot>
-	</GridLayout>
+	<div class="w-full h-full px-2">
+		<GridLayout {colCount}>
+			{#each items as item}
+				<Item
+					{...item}
+					on:input={handleItemEvent}
+					on:change={handleItemEvent}
+					on:click={handleItemEvent}
+				/>
+			{/each}
+			<slot></slot>
+		</GridLayout>
+	</div>
 </form>

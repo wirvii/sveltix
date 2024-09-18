@@ -1,11 +1,11 @@
 <script>
 	import './base.css'
 
-	export let colCount = 12
+	export let colCount = 2
 
 	$: cols = Math.min(12, Math.max(1, colCount))
 </script>
 
-<div class="grid grid-cols-{cols}">
+<div class="grid grid-cols-{cols} gap-3">
 	<slot></slot>
 </div>

@@ -1,11 +1,12 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import { LABEL_STYLES, INPUT_STYLES, REQUIRED_STYLES } from './styles.js';
+	import { StyleBuilder } from './styles.js';
 	import InputLabelGroup from './InputLabelGroup.svelte';
 
+	const id = Math.random().toString(36).substring(7);
 	export let label = '';
+	export let showColon = true;
 	export let type = 'text';
-	export let id = Math.random().toString(36).substring(7);
 	export let name = '';
 	export let value = '';
 	export let min = '';
@@ -13,6 +14,7 @@
 	export let required = false;
 	export let disabled = false;
 
+	const styles = new StyleBuilder();
 	const dispatch = createEventDispatcher();
 
 	function handleInput(event) {
@@ -32,16 +34,19 @@
 		{max}
 		{disabled}
 		{required}
-		class={INPUT_STYLES}
+		class={styles.input().build()}
 		placeholder=" "
 	/>
 	<label
 		for={id}
-		class={LABEL_STYLES}
+		class={styles.label().build()}
 	>
 		{label}
+		{#if showColon}
+			<span>:</span>
+		{/if}
 		{#if required}
-			<span class={REQUIRED_STYLES}>*</span>
+			<span class={styles.required().build()}>*</span>
 		{/if}
 	</label>
 </InputLabelGroup>
