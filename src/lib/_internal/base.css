@@ -53,3 +53,13 @@
     }
 
 }
+
+.input-span-invalid::after {
+    position: absolute;
+    content: "*";
+    color: #f05b41;
+}
+
+.input-invalid {
+    border: 1px solid #f05b41;
+}

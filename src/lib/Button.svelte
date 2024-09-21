@@ -1,4 +1,6 @@
 <script>
+	import './_internal/base.css';
+	
 	import { createEventDispatcher } from 'svelte';
 	import { StyleBuilder, cssUtils } from './_internal/styles.js';
 	import { ButtonType } from './_internal/types.js';

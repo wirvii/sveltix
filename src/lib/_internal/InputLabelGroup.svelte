@@ -1,4 +1,6 @@
 <script>
+    import './base.css';
+
     import { StyleBuilder } from "./styles.js";
 
     const styles = new StyleBuilder();

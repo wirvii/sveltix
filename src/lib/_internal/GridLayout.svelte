@@ -1,7 +1,7 @@
 <script>
 	import './base.css'
 
-	export let colCount = 2
+	export let colCount = 1
 
 	$: cols = Math.min(12, Math.max(1, colCount))
 </script>

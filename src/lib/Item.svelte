@@ -1,12 +1,14 @@
 <script>
+	import './_internal/base.css';
+	
 	import { StyleBuilder } from './_internal/styles.js';
 	import { HorizontalAlignment, ItemType, TextAlign } from './_internal/types.js';
 	import Button from './Button.svelte';
-	import Empty from './Empty.svelte';
+	import Empty from './_internal/Empty.svelte';
 
 	import { createEventDispatcher } from 'svelte';
-	import GroupItem from './GroupItem.svelte';
-	import SimpleItem from './SimpleItem.svelte';
+	import GroupItem from './_internal/GroupItem.svelte';
+	import SimpleItem from './_internal/SimpleItem.svelte';
 
 	const styles = new StyleBuilder();
 	const dispatch = createEventDispatcher();
@@ -14,8 +16,8 @@
 	// Propiedades comunes
 	export let itemType = 'empty'; // Tipo del item
 	export let name = ''; // Nombre del campo
-	export let colCount = 2; // Número de columnas del grid
-	export let colSpan = 2; // Columnas que ocupa en el grid
+	export let colCount = 1; // Número de columnas del grid
+	export let colSpan = 1; // Columnas que ocupa en el grid
 	export let cssClass = ''; // Clases CSS adicionales
 	export let visible = true; // Visibilidad del campo
 
@@ -34,8 +36,7 @@
 	export let isRequired = false;
 	export let label = {
 		text: name,
-		showColon: true,
-		visible: true
+		showColon: false
 	};
 
 	// Función para manejar eventos y reenviarlos al componente padre

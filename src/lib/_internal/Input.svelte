@@ -1,4 +1,6 @@
 <script>
+	import './base.css';
+
 	import { createEventDispatcher } from 'svelte';
 	import { StyleBuilder } from './styles.js';
 	import InputLabelGroup from './InputLabelGroup.svelte';
@@ -36,6 +38,7 @@
 		{required}
 		class={styles.input().build()}
 		placeholder=" "
+		autocomplete="off"
 	/>
 	<label
 		for={id}

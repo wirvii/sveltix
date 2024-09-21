@@ -1,15 +1,23 @@
 <script>
+	import './_internal/base.css';
+	
 	import { createEventDispatcher } from 'svelte';
 	import { StyleBuilder } from './_internal/styles.js';
 
 	const id = Math.random().toString(36).substring(7);
-	export let label = '';
-	export let showColon = true;
+	export let label = {
+		text: '',
+		showColon: true
+	};
 	export let name = '';
 	export let value = '';
 	export let rows = 3;
 	export let required = false;
 	export let disabled = false;
+	export let placeholder = '';
+
+	$: showColon = (label && label.showColon);
+	$: labelText = (label && label.text) || name;
 
 	const styles = new StyleBuilder();
 	const dispatch = createEventDispatcher();
@@ -30,18 +38,18 @@
 		{required}
 		{rows}
 		class={styles.textarea().build()}
-		placeholder=" "
+		{placeholder}
 	></textarea>
 	<label
 		for={id}
 		class={styles.label().build()}
 	>
-		{label}
+		{labelText}
 		{#if showColon}
 			<span>:</span>
 		{/if}
 		{#if required}
-			<span class="text-red-500 font-thin">*</span>
+			<span class={styles.required().build()}>*</span>
 		{/if}
 	</label>
 </div>

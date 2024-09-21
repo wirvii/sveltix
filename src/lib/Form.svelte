@@ -1,9 +1,11 @@
 <script>
+	import './_internal/base.css';
+	
 	import GridLayout from './_internal/GridLayout.svelte';
 	import Item from './Item.svelte';
 
 	export let items = [];
-	export let colCount = 2;
+	export let colCount = 1;
 	export let onSubmit = null;
 
 	let formData = {};
@@ -22,7 +24,7 @@
 	}
 </script>
 
-<form on:submit={handleSubmit}>
+<form on:submit={handleSubmit} autocomplete="off">
 	<div class="w-full h-full px-2">
 		<GridLayout {colCount}>
 			{#each items as item}
